@@ -111,7 +111,7 @@ class Assistant:
         
         data = {
             'searchparam': json.dumps(searchparam),
-            'wxkey': self.wxkey,
+            'wxkey': 'BE0D8A6BD35CB128088C98CC335C6EBAF3119F37382EA08D692663370C022EF60EB3ADE0230D237751E4CDED99BFAB9CB72BF4C5609308312EC196AB50307E66A0F5AFB149240C482271F454F94B8559A176E464E674E6E6C574DB887C1796483258F2A15F6E4DA83AD81B0D453F598F',
             'classname': 'saasbllclass.CommonFuntion',
             'funname': 'MemberOrderfromWx'
         }
@@ -160,5 +160,5 @@ class Assistant:
         print(response.text)
         
 if __name__ == "__main__":
-    assistant = Assistant("2024-5-12-11:31")
-    assistant.delegate(8, "2024-5-13-8", "2024-5-13-9")
+    assistant = Assistant("2024-5-12-20:49")
+    assistant.delegate(8, "2024-5-14-8", "2024-5-14-9")
