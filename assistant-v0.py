@@ -1,7 +1,7 @@
 import requests
 import json
 
-wxkey = 'your_wx_key'
+wxkey = 'BE0D8A6BD35CB128088C98CC335C6EBAF3119F37382EA08D692663370C022EF60EB3ADE0230D237751E4CDED99BFAB9CB72BF4C5609308312EC196AB50307E66A0F5AFB149240C482271F454F94B8559A176E464E674E6E672530706D9B09F6B83104CE8F0BCD31253CF27C32E71FEB3''
 
 headers = {
     'Accept': 'application/json, text/javascript, */*; q=0.01',
@@ -18,7 +18,7 @@ headers = {
 def send_order(court_id: int, date_str: str, start_hour_str: str, end_hour_str: str):
     searchparam = {
         "datestring": date_str,
-        "cdstring": "Y:" + str(court_id) + "," + start_hour_str + "-" + end_hour_str + ";",
+        "cdstring": "P:" + str(court_id) + "," + start_hour_str + "-" + end_hour_str + ";",
         "paytype": "W"
     }
     
@@ -47,15 +47,15 @@ def send_confirm(order_id: str, money: str):
         'goodsshuoming': '预订付费'
     }
     response = requests.post(
-        url='http://33301.koksoft.com/HomefuntionV2json.aspx', 
-        headers=headers, 
+        url='http://33301.koksoft.com/GetWxPayParam.aspx', 
+        headers=headers,
         data=data,
         verify=False
     )
     print("confirm request has been sent! ")
     return response
 
-resp_text = send_order(7, "2024-5-13", "9:00", "10:00").text
+resp_text = send_order(4, "2024-5-14", "20:00", "22:00").text
 resp_arr = resp_text.split(",")
 order_id = resp_arr[1].strip('\"')
 money = resp_arr[2]
